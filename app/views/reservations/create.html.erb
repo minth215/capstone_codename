@@ -1,0 +1,17 @@
+<div class="box blurred-bg">
+  <h1>예약이 성공적으로 완료되었습니다.</h1>
+
+  <p><%= @reservation.theme.title %></p>
+  <p><%= @reservation.date %> <%= @reservation.time.strftime("%I:%M") %></p>
+  <p><%= @reservation.member %>명</p>
+  <p><%= @reservation.name %></p>
+  <p><%= @reservation.phone %></p>
+  
+  <%#= link_to "메인으로 돌아가기", root_path, class: "btn" %>
+  <div class="reservation_btn">
+    <a href="/" class="btn">
+    	<p>Go to Main</p>
+    	<!--<i class="material-icons">arrow_forward</i>-->
+    </a>
+  </div>
+</div>

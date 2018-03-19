@@ -1,0 +1,15 @@
+<div class="box blurred-bg">
+  <h2>Reservation List</h2>
+  <h1>CodeName :SMU</h1>
+  <% @reservations.each do |f| %>
+    ===============
+    <p><%= f.date %></p><p><%= f.time.strftime("%H:%M") %></p>
+    <p><%= f.member %>명</p>
+    <p><%= f.name %></p>
+    <p><%= f.phone %></p>
+    ===============
+  <% end %>
+
+  <%= link_to "메인으로 돌아가기", root_path, class: "btn" %>
+  <%= link_to "전체 예약 목록 확인하기", reservations_path, method: :get, class: "btn" %>
+</div>

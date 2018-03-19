@@ -1,0 +1,168 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// @import "compass/css3";
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,400,700);
+
+$background-img: "/images/main.jpeg";
+// "https://lh4.googleusercontent.com/-3eBjuQpOGFw/U47yh_-OycI/AAAAAAAAI2U/uaU5pK49N1w/s1600/normal.jpg"
+$blurred-img: "/images/main(blur).png";
+// "https://lh3.googleusercontent.com/-m8TxQMObg6c/U474EWu7Y9I/AAAAAAAAI2k/xkRGoIEC1iU/s1600/blur.jpg"
+$grey: #292827;
+
+*, *:before, *:after {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+// body {
+// 	background: $grey;
+// 	color: white;
+// }
+
+
+body{
+	background-image: url("main.jpeg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+
+	font-family: Raleway, Open Sans, Droid Sans, Roboto,arial, sans-serif;
+}
+
+.blurred-bg{
+
+	background-image: url("main(blur).png");
+	background-repeat: no-repeat;
+// 	@include background-size(cover);
+  background-size: cover;
+	background-attachment: fixed;
+   
+	&.tinted{
+		// @include background-image(linear-gradient(0deg, rgba(255,255,255,.2),rgba(255,255,255,.2)),url($blurred-img));
+	}
+	&.shaded{
+		// @include background-image(linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)),url($blurred-img));
+	}
+}
+
+.box{
+	width: 600px;
+	height: 400px;
+  left: -webkit-calc( 50% - 300px );
+  top: 20%;
+	position: absolute;
+	border-radius: 5px;
+// 	@include box-shadow(0 20px 30px rgba(0,0,0,.6));
+	border: 1px solid rgba(255,255,255,.3);
+	padding: 20px;
+	text-align: center;
+// 	@include box-sizing(border-box);
+	text-shadow: 0 1px 1px rgba(0,0,0,.4);
+  // display: flex;
+  transition: box-shadow .3s ease;
+  
+	&:active{
+    cursor: move;
+    // @include box-shadow(0 20px 50px rgba(0,0,0,.9));
+  }
+  
+  .content{
+    margin: auto;
+  }
+}
+h1,h2,a,p{
+	color: white;
+	font-weight: 100;
+  
+	.tinted &{
+		color: black;
+		text-shadow: 0 1px 1px rgba(255,255,255,.2);
+	}
+}
+h1{ 
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 1px #43ffd5, -1px -1px 1px #ff4a4a;
+}
+h2{
+  font-size: 14px;
+  margin-top: 30px;
+}
+p{ 
+  margin: 10px;
+  &.related{
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #444;
+    
+    // a{
+    //   font-weight: 700;
+    //   text-decoration: none;
+    //   &:hover{
+    //     text-decoration: underline;
+    //   }
+    // }
+  }
+}
+
+
+
+.reservation_btn {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 40px;
+}
+
+a {
+	text-decoration: none;
+	color: #fff;
+	
+	&.btn {
+		border: 1px solid #fff;
+		width: 200px;
+		height: 40px;
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+		z-index: 0;
+		transition: all 200ms cubic-bezier(.25,.75,.5,1);
+		
+		&p {
+		  line-height: 40px;
+		}
+		&i {
+			line-height: 40px;
+		}
+		
+		&:after {
+			content: '';
+			position: absolute;
+			transition: all 250ms cubic-bezier(.25,.75,.5,1.25);
+			width: 0;
+			right: 0%;
+			bottom: 0;
+			height: 100%;
+			background: #fff;
+			z-index: -1;
+		}
+		
+		&:hover, &.hover {
+			color: #786a55;
+			
+			&:after {
+				width: 100%;
+    		right: auto;
+    		left: 0;
+			}
+		}
+	}
+}
